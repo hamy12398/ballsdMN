@@ -1,4 +1,6 @@
-useDynLib(TempConvCpp, .registration=TRUE)
+useDynLib(BOOOM, .registration=TRUE)
 exportPattern("^[[:alpha:]]+")
 import(Rcpp)
-
+import(pracma)
+import(testthat)
+import(RcppArmadillo)

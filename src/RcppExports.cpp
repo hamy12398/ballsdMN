@@ -10,54 +10,37 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// ackley2D
-double ackley2D(NumericVector x);
-RcppExport SEXP _ballsdMN_ackley2D(SEXP xSEXP) {
+// BOOOM_opt
+List BOOOM_opt(List Mat, Function func, double desired_min, double s_init, int no_runs, int max_iter, double rho, double phi, double tol_fun, double tol_fun_2, double desired_improv_rate, int improv_rate_period, int total_iter, int print_output);
+RcppExport SEXP _BOOOM_BOOOM_opt(SEXP MatSEXP, SEXP funcSEXP, SEXP desired_minSEXP, SEXP s_initSEXP, SEXP no_runsSEXP, SEXP max_iterSEXP, SEXP rhoSEXP, SEXP phiSEXP, SEXP tol_funSEXP, SEXP tol_fun_2SEXP, SEXP desired_improv_rateSEXP, SEXP improv_rate_periodSEXP, SEXP total_iterSEXP, SEXP print_outputSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(ackley2D(x));
-    return rcpp_result_gen;
-END_RCPP
-}
-// griewank2D
-double griewank2D(Rcpp::NumericVector x);
-RcppExport SEXP _ballsdMN_griewank2D(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(griewank2D(x));
-    return rcpp_result_gen;
-END_RCPP
-}
-// ballsd
-NumericVector ballsd(NumericVector initialParams, Function objFunc, double stepSizeInc, double stepSizeDec, double probInc, double probDec, int maxIterations);
-RcppExport SEXP _ballsdMN_ballsd(SEXP initialParamsSEXP, SEXP objFuncSEXP, SEXP stepSizeIncSEXP, SEXP stepSizeDecSEXP, SEXP probIncSEXP, SEXP probDecSEXP, SEXP maxIterationsSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< NumericVector >::type initialParams(initialParamsSEXP);
-    Rcpp::traits::input_parameter< Function >::type objFunc(objFuncSEXP);
-    Rcpp::traits::input_parameter< double >::type stepSizeInc(stepSizeIncSEXP);
-    Rcpp::traits::input_parameter< double >::type stepSizeDec(stepSizeDecSEXP);
-    Rcpp::traits::input_parameter< double >::type probInc(probIncSEXP);
-    Rcpp::traits::input_parameter< double >::type probDec(probDecSEXP);
-    Rcpp::traits::input_parameter< int >::type maxIterations(maxIterationsSEXP);
-    rcpp_result_gen = Rcpp::wrap(ballsd(initialParams, objFunc, stepSizeInc, stepSizeDec, probInc, probDec, maxIterations));
+    Rcpp::traits::input_parameter< List >::type Mat(MatSEXP);
+    Rcpp::traits::input_parameter< Function >::type func(funcSEXP);
+    Rcpp::traits::input_parameter< double >::type desired_min(desired_minSEXP);
+    Rcpp::traits::input_parameter< double >::type s_init(s_initSEXP);
+    Rcpp::traits::input_parameter< int >::type no_runs(no_runsSEXP);
+    Rcpp::traits::input_parameter< int >::type max_iter(max_iterSEXP);
+    Rcpp::traits::input_parameter< double >::type rho(rhoSEXP);
+    Rcpp::traits::input_parameter< double >::type phi(phiSEXP);
+    Rcpp::traits::input_parameter< double >::type tol_fun(tol_funSEXP);
+    Rcpp::traits::input_parameter< double >::type tol_fun_2(tol_fun_2SEXP);
+    Rcpp::traits::input_parameter< double >::type desired_improv_rate(desired_improv_rateSEXP);
+    Rcpp::traits::input_parameter< int >::type improv_rate_period(improv_rate_periodSEXP);
+    Rcpp::traits::input_parameter< int >::type total_iter(total_iterSEXP);
+    Rcpp::traits::input_parameter< int >::type print_output(print_outputSEXP);
+    rcpp_result_gen = Rcpp::wrap(BOOOM_opt(Mat, func, desired_min, s_init, no_runs, max_iter, rho, phi, tol_fun, tol_fun_2, desired_improv_rate, improv_rate_period, total_iter, print_output));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_ballsdMN_ackley2D", (DL_FUNC) &_ballsdMN_ackley2D, 1},
-    {"_ballsdMN_griewank2D", (DL_FUNC) &_ballsdMN_griewank2D, 1},
-    {"_ballsdMN_ballsd", (DL_FUNC) &_ballsdMN_ballsd, 7},
+    {"_BOOOM_BOOOM_opt", (DL_FUNC) &_BOOOM_BOOOM_opt, 14},
     {NULL, NULL, 0}
 };
 
-RcppExport void R_init_ballsdMN(DllInfo *dll) {
+RcppExport void R_init_BOOOM(DllInfo *dll) {
     R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
     R_useDynamicSymbols(dll, FALSE);
 }
