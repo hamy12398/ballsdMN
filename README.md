@@ -1,6 +1,6 @@
-BOOOM
+## BOOOM
 
-Description coming soon (for private use only)
+### Description coming soon (for private use only)
 
 To install the R package execute following code
 
