@@ -12,4 +12,4 @@ library(BOOOM)
 
 ?BOOOM_opt
 
-?BOOOMproc
+
