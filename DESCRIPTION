@@ -1,11 +1,10 @@
 Package: BOOOM
 Type: Package
-Title: What the Package Does in One 'Title Case' Line
+Title: Optimization for Function of Multiple Row Orthogonal Matrices 
 Version: 1.0
 Date: 2024-05-07
 Author: Khoa Huynh, My Nguyen, Priyam Das
 Maintainer: Khoa Huynh <huynhk4@vcu.edu>
-Description: The optimization utilizes Fermi’s principle to minimize objective function values of given matrices. The multiple orthogonal matrices will be rotated on all pair axes (out of existing axes) by optimized angle in counter-clock-wise direction.
 License: GPL (>= 2)
 Imports: Rcpp (>= 1.0.12)
 LinkingTo: Rcpp
